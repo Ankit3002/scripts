@@ -1,0 +1,318 @@
+
+getters and setters for ipp_t
+
+getters 
+ippFirstAttribute
+
+ippNextAttribute
+
+ippFindAttribute
+
+ippGetRequestOperation
+
+ippGetRequestId
+
+setter functions ...
+ippAddStrings
+
+ippAddInteger
+
+ippAddBoolean
+
+ippSetOperation
+
+ippSetRequestId
+
+
+
+
+getters and setters for ipp_attribute_t
+
+getters
+
+GETTING THE PROPERTIES ...
+ippGetName
+ippGetValueTag
+ippGetGroupTag
+ippGetValueCount
+
+GETTING THE VALUE ....
+ippGetString
+ippGetInteger
+ippGetBoolean
+
+
+setters
+
+ADDERS
+ippAddStrings
+ippAddInteger
+ippAddBoolean
+
+SETTERS
+ippSetInteger
+ippSetString
+ippSetBoolean
+
+
+If you see appropriate entries in out.txt your PAPPL work is correct, and you need to advance to cpdb-backend-cups so that it finds the presets and generates an option to select desired preset in the print dialog (send enumerated-choice option to CPDB frontend), then you must make the CPDB CUPS backend send the correct IPP attribute depending on which preset the user has actually chosen.
+
+
+1. copy cups in /usr/local/lib/print-backends
+
+
+// the below are always working fine ... 
+2. copy org.openprinting.Backend.CUPS in /usr/local/share/print-backend
+
+3. copy org.openprinting.Backend.CUPS.service in /usr/share/dbus-1/services
+
+
+// important command ...
+
+sudo cp /home/ankit/Desktop/projects/scripts/cpdb-backend-cups/src/cups /usr/local/lib/print-backends
+
+
+
+
+get-all-options Ankit CUPS
+
+
+options in dests ...
+
+the value of printername variable is ---> Ankit
+the value of printername from cupsDest variable is ---> Ankit
+name --> copies  and value ---> 1
+name --> cups-browsed  and value ---> true
+name --> device-uri  and value ---> implicitclass://Ankit/
+name --> finishings  and value ---> 3
+name --> job-cancel-after  and value ---> 10800
+name --> job-hold-until  and value ---> no-hold
+name --> job-priority  and value ---> 50
+name --> job-sheets  and value ---> none,none
+name --> marker-change-time  and value ---> 0
+name --> media  and value ---> na_letter_8.5x11in
+name --> number-up  and value ---> 1
+name --> orientation-requested  and value ---> 0
+name --> output-bin  and value ---> face-down
+name --> print-color-mode  and value ---> color
+name --> printer-commands  and value ---> none
+name --> printer-info  and value ---> 
+name --> printer-is-accepting-jobs  and value ---> true
+name --> printer-is-shared  and value ---> false
+name --> printer-is-temporary  and value ---> false
+name --> printer-location  and value ---> 
+name --> printer-make-and-model  and value ---> Generic PDF Printer, driverless, 2.0rc1
+name --> printer-state  and value ---> 3
+name --> printer-state-change-time  and value ---> 1690381511
+name --> printer-state-reasons  and value ---> none
+name --> printer-type  and value ---> 2101276
+name --> printer-uri-supported  and value ---> ipp://localhost/printers/Ankit
+name --> sides  and value ---> one-sided
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#include <stdio.h>
+#include <cups/cups.h>
+
+int main()
+{
+    ipp_t *request;      /* IPP request */
+    ipp_t *response;     /* IPP response */
+    const char *uri = "ipps://localhost:631/printers/your_printer_name";  /* Replace with your printer URI */
+
+    /* Initialize IPP request */
+    request = ippNewRequest(IPP_OP_GET_PRINTER_ATTRIBUTES);
+
+    /* Set attributes for the request (optional) */
+    /* For getting all attributes, you don't need to specify any attributes */
+
+    /* Send the request and get the response */
+    response = cupsDoRequest(CUPS_HTTP_DEFAULT, request, uri);
+
+    /* Check for successful response */
+    if (response && ippGetStatusCode(response) == IPP_OK)
+    {
+        /* Iterate through the attributes in the response and process them */
+        ipp_attribute_t *attr;
+        for (attr = ippFirstAttribute(response); attr; attr = ippNextAttribute(response))
+        {
+            const char *name = ippGetName(attr);
+            ipp_tag_t value_tag = ippGetValueTag(attr);
+
+            /* Process the attribute based on its value tag */
+            switch (value_tag)
+            {
+                case IPP_TAG_INTEGER:
+                    printf("%s (Integer): %d\n", name, ippGetInteger(attr, 0));
+                    break;
+                case IPP_TAG_BOOLEAN:
+                    printf("%s (Boolean): %s\n", name, ippGetBoolean(attr, 0) ? "true" : "false");
+                    break;
+                case IPP_TAG_STRING:
+                    printf("%s (String): %s\n", name, ippGetString(attr, 0, NULL));
+                    break;
+                // Add more cases for different value tags if needed
+                default:
+                    break;
+            }
+        }
+    }
+    else
+    {
+        fprintf(stderr, "IPP request failed: %s\n", cupsLastErrorString());
+    }
+
+    /* Free the response and request objects */
+    ippDelete(response);
+    ippDelete(request);
+
+    return 0;
+}
+
+
+
+
+
+
+
+    // cupsInit(NULL , NULL);
+    // int num_dests = cupsGetDests(&dinfo);
+
+     // Print the names of all supported printers
+    // for (int i = 0; i < num_dests; i++) {
+    //     // printf("Printer: %s\n", dinfo);
+    // }
+
+    // cups_dinfo_k *ank = p->dinfo;
+
+    // if(ank->attrs)
+    // {
+    //     printf("attrs is there inside ank variable \n");
+    // }
+
+    // int ank_count = ippGetCount(ank->attrs);
+
+    // printf("the count inside ank->atts is ---> %d\n", ank_count);
+    // printf("The value of resource is ---> %s\n ", ank->resource);
+    // printf("the URI is ---> %s\n", ank->uri );
+    // ipp_attribute_t *attr;
+    //  for (attr = ippFirstAttribute(ank->ready_attrs); attr; attr = ippNextAttribute(ank->ready_attrs)) {
+    //     const char *name = ippGetName(attr);
+    //     // int count = ippGetCount(attr);
+    //     int attri_count = ippGetCount(attr);
+    //     printf("The count associated with --> %s    is --> %d\n", name , attri_count );
+    //  }
+        // ipp_tag_t value_tag = ippGetValueTag(attr);
+
+        // printf("Attributes ---> %s\n", name);
+        // printf("the value of count associated with that is ---> %d\n" , count);
+      
+    //        for (int i = 0; i < count; i++) 
+    //     {
+    //         if (value_tag == IPP_TAG_TEXT) {
+    //             const char *value = ippGetString(attr, i, NULL);
+    //             printf("  Value %d: %s\n", i, value);
+    //         } else if (value_tag == IPP_TAG_INTEGER) {
+    //             int value = ippGetInteger(attr, i);
+    //             printf("  Value %d: %d\n", i, value);
+    //         }
+    //         else if(value_tag == IPP_TAG_BOOLEAN)
+    //         {
+    //           bool value = ippGetBoolean(attr , i);
+    //           printf("  Value %d: %d\n", i , value);
+    //         }
+
+    //         else if(value_tag == IPP_TAG_STRING)
+    //         {
+
+    //           char *value = ippGetString(attr, i , NULL);
+    //                   printf("  Value %d: %s\n", i, value);
+    //         }
+
+    //         else if(value_tag == IPP_TAG_KEYWORD)
+    //         {
+    //            char *value = ippGetString(attr, i , NULL);
+    //                   printf("  Value %d: %s\n", i, value);
+    //         }
+
+    //         else if(value_tag == IPP_TAG_ENUM)
+    //         {
+    //           // here we print the enum values ...
+    //           int value = ippGetInteger(attr , i);
+    //           printf("  Value %d: %d\n", i , value);
+
+              
+    //           // switch(value)
+    //           // {
+    //           //   case IPP_QUALITY_HIGH:
+    //           //     ippSetInteger(printer->attrs , &attr , i , 4);
+    //           //     break;
+                
+    //           //   case IPP_QUALITY_NORMAL:
+    //           //     ippSetInteger(printer->attrs , &attr , i , 4);
+    //           //     break;
+
+    //           //   case IPP_QUALITY_DRAFT:
+    //           //     ippSetInteger(printer->attrs , &attr , i , 4);
+    //           //     break;
+    //           // }
+    //       }
+    // }
+
+    
+
+
+
+
+        // if(attrs)
+        // {
+        //     printf("attrs exist for --> %s\n", option_name);
+        // }
+        // else
+        // {
+        //     printf("attrs don't exist for --> %s\n", option_name);
+        // }
+
+
+    // include cups api's over here...
+
+    // char name[IPP_MAX_NAME];
+
+    //   snprintf(name, sizeof(name), "%s-supported", option_name);
+    //   cups_dinfo_t *info = p->dinfo
+    
+    //   ipp_attribute_t* preset =  ippFindAttribute(info->attrs, name, IPP_TAG_ZERO);
+
+    // print the tag associated with that attribute ...
+    // ipp_tag_t *tag_value =  ippGetGroupTag(attrs);
+    // switch(tag_value)
+    // {
+    //     case IPP_TAG_TEXT:
+    //     printf("the name of the attribute that i got out that --> %s\n", ippGetName(attrs));
+    //     break;
+
+    //     case IPP_TAG_ZERO:
+    //             printf("the name of the attribute that i got out that --> %s\n", ippGetName(attrs));
+    //     break;
+        
+    // }
+    
+    // int my_count = ippGetCount(preset);
