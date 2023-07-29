@@ -1,9 +1,5 @@
 #! /usr/bin/bash
 
-git clone https://github.com/OpenPrinting/cups.git
-git clone https://github.com/michaelrsweet/pappl.git
-git clone https://github.com/OpenPrinting/pappl-retrofit.git
-git clone https://gitlab.gnome.org/GNOME/gtk.git
 
 # cloning other repositories ...
 git clone https://github.com/OpenPrinting/foomatic-db-nonfree.git

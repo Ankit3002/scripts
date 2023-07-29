@@ -1,0 +1,137 @@
+"/usr/share/cups/ipptool/get-printer-attributes.test":
+    Get-Printer-Attributes:
+        attributes-charset (charset) = utf-8
+        attributes-natural-language (naturalLanguage) = en
+        printer-uri (uri) = ipp://localhost:8000/ipp/print/Ankit
+        requested-attributes (1setOf keyword) = all,media-col-database
+    Get printer attributes using get-printer-attributes                  [PASS]
+        RECEIVED: 18056 bytes in response
+        status-code = successful-ok (successful-ok)
+        attributes-charset (charset) = utf-8
+        attributes-natural-language (naturalLanguage) = en
+        charset-configured (charset) = utf-8
+        charset-supported (1setOf charset) = us-ascii,utf-8
+        compression-supported (1setOf keyword) = deflate,gzip,none
+        copies-default (integer) = 1
+        device-uuid (uri) = urn:uuid:c870dd22-7519-39ed-6cd8-3312868f4e0d
+        document-format-default (mimeMediaType) = application/octet-stream
+        generated-natural-language-supported (naturalLanguage) = en
+        ipp-versions-supported (1setOf keyword) = 1.1,2.0
+        job-hold-until-default (keyword) = no-hold
+        job-hold-until-supported (1setOf keyword) = day-time,evening,indefinite,night,no-hold,second-shift,third-shift,weekend
+        job-hold-until-time-supported (boolean) = true
+        job-ids-supported (boolean) = true
+        job-k-octets-supported (rangeOfInteger) = 0-40004888
+        job-priority-default (integer) = 50
+        job-priority-supported (integer) = 1
+        job-sheets-default (nameWithoutLanguage) = none
+        job-sheets-supported (nameWithoutLanguage) = none
+        multiple-document-handling-supported (1setOf keyword) = separate-documents-uncollated-copies,separate-documents-collated-copies
+        multiple-document-jobs-supported (boolean) = false
+        multiple-operation-time-out (integer) = 60
+        multiple-operation-time-out-action (keyword) = abort-job
+        natural-language-configured (naturalLanguage) = en
+        operations-supported (1setOf enum) = Print-Job,Validate-Job,Create-Job,Send-Document,Cancel-Job,Get-Job-Attributes,Get-Jobs,Get-Printer-Attributes,Pause-Printer,Resume-Printer,Set-Printer-Attributes,Get-Printer-Supported-Values,Create-Printer-Subscriptions,Create-Job-Subscriptions,Get-Subscription-Attributes,Get-Subscriptions,Renew-Subscription,Cancel-Subscription,Get-Notifications,Enable-Printer,Disable-Printer,Pause-Printer-After-Current-Job,Cancel-Current-Job,Cancel-Jobs,Cancel-My-Jobs,Close-Job,Identify-Printer,Hold-Job,Release-Job,Hold-New-Jobs,Release-Held-New-Jobs
+        orientation-requested-supported (1setOf enum) = portrait,landscape,reverse-landscape,reverse-portrait,none
+        job-presets-supported (keyword) = document-format
+        pdl-override-supported (keyword) = attempted
+        print-content-optimize-supported (1setOf keyword) = auto,graphic,photo,text-and-graphic,text
+        print-quality-supported (1setOf enum) = draft,normal,high
+        print-scaling-supported (1setOf keyword) = auto,auto-fit,fill,fit,none
+        printer-get-attributes-supported (keyword) = document-format
+        printer-id (integer) = 1
+        printer-info (textWithoutLanguage) = Ankit
+        printer-name (nameWithoutLanguage) = Ankit
+        printer-uuid (uri) = urn:uuid:c870dd22-7519-39ed-6cd8-3312868f4e0d
+        requesting-user-uri-supported (boolean) = true
+        uri-security-supported (1setOf keyword) = none,tls
+        which-jobs-supported (1setOf keyword) = completed,not-completed,all
+        printer-device-id (textWithoutLanguage) = 
+        color-supported (boolean) = true
+        document-format-preferred (mimeMediaType) = application/pdf
+        document-format-supported (1setOf mimeMediaType) = application/octet-stream,image/pwg-raster,image/urf,application/vnd.printer-specific,application/pdf,application/postscript,image/jpeg,image/png
+        finishings-default (enum) = none
+        finishings-supported (enum) = none
+        identify-actions-supported (1setOf keyword) = display,sound
+        ipp-features-supported (keyword) = ipp-everywhere
+        job-creation-attributes-supported (1setOf keyword) = copies,document-format,document-name,ipp-attribute-fidelity,job-hold-until,job-hold-until-time,job-name,job-priority,job-retain-until,job-retain-until-interval,job-retain-until-time,media,media-col,multiple-document-handling,orientation-requested,output-bin,print-color-mode,print-content-optimize,print-quality,printer-resolution,sides,page-ranges,manual-feed-of-paper,manual-duplex,color-model,resolution,resolution-enhancement,borderless-printing,edge-to-edge,job-offset,on-low-supplies,override-a-4-with-letter
+        jpeg-k-octets-supported (rangeOfInteger) = 0-40004888
+        jpeg-x-dimension-supported (rangeOfInteger) = 0-16384
+        jpeg-y-dimension-supported (rangeOfInteger) = 1-16384
+        landscape-orientation-requested-preferred (enum) = 4
+        media-bottom-margin-supported (1setOf integer) = 0,1270
+        media-col-database (1setOf collection) = {media-bottom-margin=0 media-left-margin=0 media-right-margin=0 media-size={x-dimension=21590 y-dimension=27940} media-size-name=na_letter_8.5x11in media-top-margin=0},{media-bottom-margin=1270 media-left-margin=635 media-right-margin=635 media-size={x-dimension=21590 y-dimension=27940} media-size-name=na_letter_8.5x11in media-top-margin=1270},{media-bottom-margin=0 media-left-margin=0 media-right-margin=0 media-size={x-dimension=21000 y-dimension=29700} media-size-name=iso_a4_210x297mm media-top-margin=0},{media-bottom-margin=1270 media-left-margin=635 media-right-margin=635 media-size={x-dimension=21000 y-dimension=29700} media-size-name=iso_a4_210x297mm media-top-margin=1270},{media-bottom-margin=0 media-left-margin=0 media-right-margin=0 media-size={x-dimension=14800 y-dimension=21000} media-size-name=iso_a5_148x210mm media-top-margin=0},{media-bottom-margin=1270 media-left-margin=635 media-right-margin=635 media-size={x-dimension=14800 y-dimension=21000} media-size-name=iso_a5_148x210mm media-top-margin=1270},{media-bottom-margin=0 media-left-margin=0 media-right-margin=0 media-size={x-dimension=10500 y-dimension=14800} media-size-name=iso_a6_105x148mm media-top-margin=0},{media-bottom-margin=1270 media-left-margin=635 media-right-margin=635 media-size={x-dimension=10500 y-dimension=14800} media-size-name=iso_a6_105x148mm media-top-margin=1270},{media-bottom-margin=0 media-left-margin=0 media-right-margin=0 media-size={x-dimension=17600 y-dimension=25000} media-size-name=iso_b5_176x250mm media-top-margin=0},{media-bottom-margin=1270 media-left-margin=635 media-right-margin=635 media-size={x-dimension=17600 y-dimension=25000} media-size-name=iso_b5_176x250mm media-top-margin=1270},{media-bottom-margin=0 media-left-margin=0 media-right-margin=0 media-size={x-dimension=16200 y-dimension=22900} media-size-name=iso_c5_162x229mm media-top-margin=0},{media-bottom-margin=1270 media-left-margin=635 media-right-margin=635 media-size={x-dimension=16200 y-dimension=22900} media-size-name=iso_c5_162x229mm media-top-margin=1270},{media-bottom-margin=0 media-left-margin=0 media-right-margin=0 media-size={x-dimension=10477 y-dimension=24130} media-size-name=na_number-10_4.125x9.5in media-top-margin=0},{media-bottom-margin=1270 media-left-margin=635 media-right-margin=635 media-size={x-dimension=10477 y-dimension=24130} media-size-name=na_number-10_4.125x9.5in media-top-margin=1270},{media-bottom-margin=0 media-left-margin=0 media-right-margin=0 media-size={x-dimension=11000 y-dimension=22000} media-size-name=iso_dl_110x220mm media-top-margin=0},{media-bottom-margin=1270 media-left-margin=635 media-right-margin=635 media-size={x-dimension=11000 y-dimension=22000} media-size-name=iso_dl_110x220mm media-top-margin=1270},{media-bottom-margin=0 media-left-margin=0 media-right-margin=0 media-size={x-dimension=12700 y-dimension=33020} media-size-name=oe_5x-13_5x13in media-top-margin=0},{media-bottom-margin=1270 media-left-margin=635 media-right-margin=635 media-size={x-dimension=12700 y-dimension=33020} media-size-name=oe_5x-13_5x13in media-top-margin=1270},{media-bottom-margin=0 media-left-margin=0 media-right-margin=0 media-size={x-dimension=11400 y-dimension=16200} media-size-name=iso_c6_114x162mm media-top-margin=0},{media-bottom-margin=1270 media-left-margin=635 media-right-margin=635 media-size={x-dimension=11400 y-dimension=16200} media-size-name=iso_c6_114x162mm media-top-margin=1270},{media-bottom-margin=0 media-left-margin=0 media-right-margin=0 media-size={x-dimension=18415 y-dimension=26670} media-size-name=na_executive_7.25x10.5in media-top-margin=0},{media-bottom-margin=1270 media-left-margin=635 media-right-margin=635 media-size={x-dimension=18415 y-dimension=26670} media-size-name=na_executive_7.25x10.5in media-top-margin=1270},{media-bottom-margin=0 media-left-margin=0 media-right-margin=0 media-size={x-dimension=18274 y-dimension=25647} media-size-name=om_b-5_182.74x256.47mm media-top-margin=0},{media-bottom-margin=1270 media-left-margin=635 media-right-margin=635 media-size={x-dimension=18274 y-dimension=25647} media-size-name=om_b-5_182.74x256.47mm media-top-margin=1270},{media-bottom-margin=0 media-left-margin=0 media-right-margin=0 media-size={x-dimension=12771 y-dimension=18274} media-size-name=om_b-6_127.71x182.74mm media-top-margin=0},{media-bottom-margin=1270 media-left-margin=635 media-right-margin=635 media-size={x-dimension=12771 y-dimension=18274} media-size-name=om_b-6_127.71x182.74mm media-top-margin=1270},{media-bottom-margin=0 media-left-margin=0 media-right-margin=0 media-size={x-dimension=21590 y-dimension=35560} media-size-name=na_legal_8.5x14in media-top-margin=0},{media-bottom-margin=1270 media-left-margin=635 media-right-margin=635 media-size={x-dimension=21590 y-dimension=35560} media-size-name=na_legal_8.5x14in media-top-margin=1270},{media-bottom-margin=0 media-left-margin=0 media-right-margin=0 media-size={x-dimension=9842 y-dimension=19050} media-size-name=na_monarch_3.875x7.5in media-top-margin=0},{media-bottom-margin=1270 media-left-margin=635 media-right-margin=635 media-size={x-dimension=9842 y-dimension=19050} media-size-name=na_monarch_3.875x7.5in media-top-margin=1270},{media-bottom-margin=0 media-left-margin=0 media-right-margin=0 media-size={x-dimension=6879 y-dimension=9525} media-size-name=om_69x-95mm_68.79x95.25mm media-top-margin=0},{media-bottom-margin=1270 media-left-margin=635 media-right-margin=635 media-size={x-dimension=6879 y-dimension=9525} media-size-name=om_69x-95mm_68.79x95.25mm media-top-margin=1270},{media-bottom-margin=0 media-left-margin=0 media-right-margin=0 media-size={x-dimension=13970 y-dimension=21590} media-size-name=na_invoice_5.5x8.5in media-top-margin=0},{media-bottom-margin=1270 media-left-margin=635 media-right-margin=635 media-size={x-dimension=13970 y-dimension=21590} media-size-name=na_invoice_5.5x8.5in media-top-margin=1270}
+        media-col-supported (1setOf keyword) = media-bottom-margin,media-left-margin,media-right-margin,media-size,media-size-name,media-top-margin,media-source,media-type
+        media-left-margin-supported (1setOf integer) = 0,635
+        media-right-margin-supported (1setOf integer) = 0,635
+        media-size-supported (1setOf collection) = {x-dimension=21590 y-dimension=27940},{x-dimension=21000 y-dimension=29700},{x-dimension=14800 y-dimension=21000},{x-dimension=10500 y-dimension=14800},{x-dimension=17600 y-dimension=25000},{x-dimension=16200 y-dimension=22900},{x-dimension=10477 y-dimension=24130},{x-dimension=11000 y-dimension=22000},{x-dimension=12700 y-dimension=33020},{x-dimension=11400 y-dimension=16200},{x-dimension=18415 y-dimension=26670},{x-dimension=18274 y-dimension=25647},{x-dimension=12771 y-dimension=18274},{x-dimension=21590 y-dimension=35560},{x-dimension=9842 y-dimension=19050},{x-dimension=6879 y-dimension=9525},{x-dimension=13970 y-dimension=21590}
+        media-source-supported (1setOf keyword) = default,auto
+        media-supported (1setOf keyword) = na_letter_8.5x11in,iso_a4_210x297mm,iso_a5_148x210mm,iso_a6_105x148mm,iso_b5_176x250mm,iso_c5_162x229mm,na_number-10_4.125x9.5in,iso_dl_110x220mm,oe_5x-13_5x13in,iso_c6_114x162mm,na_executive_7.25x10.5in,om_b-5_182.74x256.47mm,om_b-6_127.71x182.74mm,na_legal_8.5x14in,na_monarch_3.875x7.5in,om_69x-95mm_68.79x95.25mm,na_invoice_5.5x8.5in
+        media-top-margin-supported (1setOf integer) = 0,1270
+        media-type-supported (keyword) = auto
+        mopria-certified (textWithoutLanguage) = 1.3
+        output-bin-supported (keyword) = face-down
+        page-ranges-supported (boolean) = true
+        pages-per-minute (integer) = 30
+        pages-per-minute-color (integer) = 30
+        pdf-k-octets-supported (rangeOfInteger) = 0-40004888
+        pdf-versions-supported (1setOf keyword) = adobe-1.3,adobe-1.4,adobe-1.5,adobe-1.6,iso-32000-1_2008,iso-32000-2_2017
+        print-color-mode-supported (1setOf keyword) = auto,color,monochrome
+        printer-make-and-model (textWithoutLanguage) = Generic PDF Printer
+        printer-output-tray (octetString) = type=unRemovableBin;maxcapacity=-2;remaining=-2;status=0;name=face-down;stackingorder=firstToLast;pagedelivery=faceDown;
+        printer-resolution-supported (1setOf resolution) = 300dpi,600dpi,1200dpi
+        pwg-raster-document-resolution-supported (1setOf resolution) = 300dpi,600dpi,1200dpi
+        pwg-raster-document-sheet-back (keyword) = normal
+        pwg-raster-document-type-supported (1setOf keyword) = black_1,sgray_8,srgb_8
+        sides-supported (1setOf keyword) = one-sided,two-sided-long-edge,two-sided-short-edge
+        urf-supported (1setOf keyword) = V1.5,W8,SRGB24,PQ3-4-5,DM1,FN3,MT0,OB10,RS600-1200
+        printer-is-accepting-jobs (boolean) = true
+        printer-state (enum) = idle
+        printer-state-message (textWithoutLanguage) = Idle.
+        printer-state-reasons (keyword) = none
+        copies-supported (rangeOfInteger) = 1-999
+        identify-actions-default (keyword) = sound
+        job-spooling-supported (keyword) = spool
+        media-col-default (collection) = {media-bottom-margin=1270 media-left-margin=635 media-right-margin=635 media-size={x-dimension=21590 y-dimension=27940} media-size-name=na_letter_8.5x11in media-source=default media-top-margin=1270 media-type=auto}
+        media-col-ready (1setOf collection) = {media-bottom-margin=1270 media-left-margin=635 media-right-margin=635 media-size={x-dimension=21590 y-dimension=27940} media-size-name=na_letter_8.5x11in media-source=default media-top-margin=1270 media-type=auto},{media-bottom-margin=0 media-left-margin=0 media-right-margin=0 media-size={x-dimension=21590 y-dimension=27940} media-size-name=na_letter_8.5x11in media-source=default media-top-margin=0 media-type=auto}
+        media-default (keyword) = na_letter_8.5x11in
+        media-ready (keyword) = na_letter_8.5x11in
+        multiple-document-handling-default (keyword) = separate-documents-collated-copies
+        orientation-requested-default (enum) = none
+        output-bin-default (keyword) = face-down
+        print-color-mode-default (keyword) = auto
+        print-content-optimize-default (keyword) = graphic
+        print-quality-default (enum) = normal
+        print-scaling-default (keyword) = fit
+        printer-config-change-date-time (dateTime) = 2023-07-25T18:02:41Z
+        printer-config-change-time (integer) = 1
+        printer-contact-col (collection) = {contact-name= contact-uri=data:, contact-vcard=BEGIN:VCARD
+VERSION:4.0
+FN:
+TEL;VALUE=URI;TYPE=work:
+EMAIL;TYPE=work:
+END:VCARD
+}
+        printer-current-time (dateTime) = 2023-07-25T18:05:36Z
+        printer-dns-sd-name (nameWithoutLanguage) = Ankit
+        printer-firmware-name (1setOf nameWithoutLanguage) = CUPS Driver Retro-Fit Printer Application,PAPPL,libcups,libjpeg,libpng
+        printer-firmware-patches (1setOf textWithoutLanguage) = ,,,,
+        printer-firmware-string-version (1setOf textWithoutLanguage) = 1.0,1.4.0,2.4.2,8.0,1.6.39
+        printer-firmware-version (1setOf octetString) = \001\000\000\000\000\000\000\000,\001\000\004\000\000\000\000\000,\002\000\004\000\002\000\000\000,\010\000\000\000\000\000\000\000,\001\000\006\000'\000\000\000
+        printer-geo-location (unknown) = unknown
+        printer-icons (1setOf uri) = http://localhost:8000/Ankit/icon-sm.png,http://localhost:8000/Ankit/icon-md.png,http://localhost:8000/Ankit/icon-lg.png
+        printer-input-tray (1setOf octetString) = type=sheetFeedAutoRemovableTray;mediafeed=27940;mediaxfeed=21590;maxcapacity=-2;level=-2;status=0;name=default;,type=other;mediafeed=0;mediaxfeed=0;maxcapacity=-2;level=-2;status=0;name=auto;
+        printer-location (textWithoutLanguage) = 
+        printer-more-info (uri) = http://localhost:8000/Ankit/
+        printer-organization (textWithoutLanguage) = 
+        printer-organizational-unit (textWithoutLanguage) = 
+        printer-resolution-default (resolution) = 600dpi
+        printer-state-change-date-time (dateTime) = 2023-07-25T18:02:41Z
+        printer-state-change-time (integer) = 0
+        printer-supply-info-uri (uri) = http://localhost:8000/Ankit/supplies
+        printer-up-time (integer) = 175
+        printer-uri-supported (uri) = ipp://localhost:8000/ipp/print/Ankit
+        printer-xri-supported (collection) = {xri-authentication=none xri-security=none xri-uri=ipp://localhost:8000/ipp/print/Ankit}
+        queued-job-count (integer) = 0
+        sides-default (keyword) = one-sided
+        uri-authentication-supported (keyword) = none

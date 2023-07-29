@@ -1,0 +1,16 @@
+{
+    "files.associations": {
+        "cups-private.h": "c",
+        "backend_helper.h": "c",
+        "cups.h": "c",
+        "ipp-private.h": "c",
+        "language.h": "c",
+        "pwg-private.h": "c",
+        "http-private.h": "c",
+        "ipp.h": "c",
+        "file.h": "c",
+        "base.h": "c",
+        "types.h": "c",
+        "stdint.h": "c"
+    }
+}

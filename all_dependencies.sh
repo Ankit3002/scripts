@@ -11,6 +11,11 @@ sudo apt-get install libtool
 sudo apt install libppd-dev
 sudo apt install libcupsfilters-dev
 
+
+
+sudo apt-get install autoconf autopoint libglib2.0-dev libdbus-1-dev libtool
+
+
 sudo apt-get install libtool
 sudo apt-get install jade
 sudo apt-get install texlive
